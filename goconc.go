@@ -17,9 +17,11 @@ func Announce(message string, delay time.Duration, wg *sync.WaitGroup) {
 
 func main() {
 	var wg sync.WaitGroup
+	fmt.Println("Testing sync.WaitGroup")
+	fmt.Println("Testing ...")
 	fmt.Println("Time now: ", time.Now())
 	wg.Add(1)
-	Announce("Done", time.Duration(2)*time.Second, &wg)
-	fmt.Println("Time now: ", time.Now())
+	Announce("Done", time.Duration(2)*time.Second, &wg) // COMBAK:
+	fmt.Println("Time now: ")
 	wg.Wait()
 }
