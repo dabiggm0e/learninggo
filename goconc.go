@@ -15,7 +15,16 @@ func Announce(message string, delay time.Duration, wg *sync.WaitGroup) {
 	}()
 }
 
+func greet(roc <-chan string) {
+	fmt.Println(<-roc)
+}
+
 func main() {
+	fmt.Println("Greeting")
+	ch := make(chan string)
+	go greet(ch)
+	ch <- "Moe"
+
 	var wg sync.WaitGroup
 	fmt.Println("Testing sync.WaitGroup")
 	fmt.Println("Testing ...")
@@ -24,4 +33,5 @@ func main() {
 	Announce("Done", time.Duration(2)*time.Second, &wg) // COMBAK:
 	fmt.Println("Time now: ")
 	wg.Wait()
+
 }
