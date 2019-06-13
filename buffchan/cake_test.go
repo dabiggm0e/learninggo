@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dabiggm0e/learninggo/buffchan"
+	"github.com/dabiggm0e/hello/buffchan"
 )
 
 var defaults = cake.Shop{
